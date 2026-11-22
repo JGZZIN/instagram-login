@@ -1,0 +1,281 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Modelo demonstrativo de tela de login inspirado no Instagram.">
+  <title>Login — Demonstração</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    :root {
+      color-scheme: dark;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: #1c1c1c;
+      color: #f5f5f5;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 28px 18px;
+    }
+
+    .login {
+      width: min(100%, 430px);
+      min-height: min(850px, calc(100vh - 56px));
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+    }
+
+    .top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .back {
+      color: #eee;
+      text-decoration: none;
+      font-size: 32px;
+      line-height: 1;
+    }
+
+    .language {
+      color: #aaa;
+      font-size: 15px;
+    }
+
+    .logo-wrap {
+      display: flex;
+      justify-content: center;
+      margin: 90px 0 105px;
+    }
+
+    .logo {
+      width: 78px;
+      height: 78px;
+    }
+
+    form {
+      display: grid;
+      gap: 14px;
+    }
+
+    input {
+      width: 100%;
+      height: 66px;
+      border: 1px solid #555;
+      border-radius: 17px;
+      background: transparent;
+      color: #fff;
+      padding: 0 20px;
+      font-size: 17px;
+      outline: none;
+    }
+
+    input::placeholder {
+      color: #aaa;
+      opacity: 1;
+    }
+
+    input:focus {
+      border-color: #8ab4f8;
+    }
+
+    button {
+      height: 64px;
+      border: 0;
+      border-radius: 40px;
+      background: #0866df;
+      color: white;
+      font-size: 18px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #1877f2;
+    }
+
+    .forgot {
+      display: block;
+      text-align: center;
+      margin: 27px 0 0;
+      color: #f5f5f5;
+      text-decoration: none;
+      font-size: 17px;
+      font-weight: 600;
+    }
+
+    .notice {
+      min-height: 42px;
+      margin: 16px 0 0;
+      color: #b9d4ff;
+      text-align: center;
+      font-size: 14px;
+      line-height: 1.45;
+    }
+
+    .bottom {
+      margin-top: auto;
+      padding-top: 65px;
+    }
+
+    .create {
+      display: block;
+      text-align: center;
+      padding: 17px 12px;
+      border: 1.5px solid #579af5;
+      border-radius: 40px;
+      color: #69a9ff;
+      text-decoration: none;
+      font-size: 17px;
+      font-weight: 600;
+    }
+
+    .meta {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 8px;
+      margin-top: 25px;
+      color: #eee;
+      font-size: 19px;
+      font-weight: 700;
+    }
+
+    .meta-mark {
+      font-size: 30px;
+      font-weight: 400;
+      line-height: 1;
+    }
+
+    @media (max-height: 700px) {
+      .logo-wrap {
+        margin: 45px 0 55px;
+      }
+
+      .bottom {
+        padding-top: 35px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <main class="login">
+
+    <div class="top">
+      <a class="back" href="#" aria-label="Voltar">‹</a>
+      <span class="language">Português (Brasil)⌄</span>
+    </div>
+
+    <div class="logo-wrap">
+
+      <!-- Logo ilustrativo -->
+      <svg class="logo" viewBox="0 0 100 100">
+        <defs>
+          <linearGradient id="igGradient"
+            x1="0" y1="1" x2="1" y2="0">
+
+            <stop offset="0" stop-color="#ffd600"/>
+            <stop offset=".35" stop-color="#ff3040"/>
+            <stop offset=".68" stop-color="#c135d8"/>
+            <stop offset="1" stop-color="#7638fa"/>
+
+          </linearGradient>
+        </defs>
+
+        <rect x="8" y="8" width="84" height="84"
+          rx="23" fill="none"
+          stroke="url(#igGradient)" stroke-width="8"/>
+
+        <circle cx="50" cy="50" r="19"
+          fill="none"
+          stroke="url(#igGradient)" stroke-width="8"/>
+
+        <circle cx="74" cy="26" r="5"
+          fill="#c135d8"/>
+      </svg>
+
+    </div>
+
+    <form id="demoLogin" autocomplete="off">
+
+      <label>
+        <span hidden>Nome de usuário</span>
+        <input
+          type="text"
+          name="username"
+          placeholder="Nome de usuário, email ou celular"
+          aria-label="Nome de usuário, email ou celular"
+          autocomplete="off">
+      </label>
+
+      <label>
+        <span hidden>Senha</span>
+        <input
+          type="password"
+          name="password"
+          placeholder="Senha"
+          aria-label="Senha"
+          autocomplete="new-password">
+      </label>
+
+      <button type="submit">
+        Entrar
+      </button>
+
+    </form>
+
+    <a class="forgot"
+      href="https://www.instagram.com/accounts/password/reset/">
+      Esqueceu a senha?
+    </a>
+
+    <p class="notice" id="notice" role="status">
+      Modelo demonstrativo. Não insira sua senha real.
+    </p>
+
+    <footer class="bottom">
+
+      <a class="create"
+        href="https://www.instagram.com/accounts/emailsignup/">
+        Criar nova conta
+      </a>
+
+      <div class="meta">
+        <span class="meta-mark">∞</span>
+        <span>Meta</span>
+      </div>
+
+    </footer>
+
+  </main>
+
+  <script>
+    // Demonstração local: não envia nem armazena credenciais.
+    document.getElementById('demoLogin')
+      .addEventListener('submit', function(event) {
+
+        event.preventDefault();
+
+        document.getElementById('notice').textContent =
+          'Demonstração: autenticação não configurada. Nenhum dado foi enviado ou salvo.';
+
+        this.reset();
+      });
+  </script>
+
+</body>
+</html>
